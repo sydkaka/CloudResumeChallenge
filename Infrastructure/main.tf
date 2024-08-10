@@ -6,7 +6,12 @@ terraform {
       version = "3.115.0"
     }
   }
-
+  backend "azurerm" {
+      resource_group_name  = "Personal"
+      storage_account_name = "ydsunstorageaccount"
+      container_name       = "$web"
+      key                  = "terraform.tfstate"
+  }
   required_version = ">= 1.1.0"
 }
 
@@ -87,15 +92,4 @@ resource "azurerm_storage_blob" "resumepdf" {
   source                 = "../resume/YongdingSunCloud.pdf"
   content_type           = "application/pdf"
 }
-resource "azurerm_storage_container" "terraformcontainer" {
-  name                  = "terraform"
-  storage_account_name  = azurerm_storage_account.storageaccount.name
-}
-resource "azurerm_storage_blob" "terraformstate" {
-  name                   = "terraform.tfstate"
-  storage_account_name   = azurerm_storage_account.storageaccount.name
-  storage_container_name = "terraform"
-  type                   = "Block"
-  source                 = "../Infrastructure/terraform.tfstate"
-  content_type           = "text/plain"
-}
+
