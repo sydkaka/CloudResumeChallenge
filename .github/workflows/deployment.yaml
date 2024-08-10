@@ -39,8 +39,8 @@
                     az storage blob download \ 
                         -file ./Infrastructure   \
                         --account-name ydsunstorageaccount \
-                        --container-name $web \
-                        --name terraform/terraform.tfstate \
+                        --container-name terraform \
+                        --name terraform.tfstate \
                         --auth-mode login
 
             - name: Set up Terraform

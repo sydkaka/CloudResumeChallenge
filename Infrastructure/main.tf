@@ -87,10 +87,14 @@ resource "azurerm_storage_blob" "resumepdf" {
   source                 = "../resume/YongdingSunCloud.pdf"
   content_type           = "application/pdf"
 }
+resource "azurerm_storage_container" "terraformcontainer" {
+  name                  = "terraform"
+  storage_account_name  = azurerm_storage_account.storageaccount.name
+}
 resource "azurerm_storage_blob" "terraformstate" {
-  name                   = "terraform/terraform.tfstate"
+  name                   = "terraform.tfstate"
   storage_account_name   = azurerm_storage_account.storageaccount.name
-  storage_container_name = "$web"
+  storage_container_name = "terraform"
   type                   = "Block"
   source                 = "../Infrastructure/terraform.tfstate"
   content_type           = "text/plain"
