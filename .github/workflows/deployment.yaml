@@ -37,11 +37,11 @@
                 azcliversion: latest
                 inlineScript: |
                     az storage blob download \ 
-                    -file ./Infrastructure   \
-                    --account-name ydsunstorageaccount \
-                    --container-name $web \
-                    --name terraform/terraform.tfstate \
-                    --auth-mode login
+                        -file ./Infrastructure   \
+                        --account-name ydsunstorageaccount \
+                        --container-name $web \
+                        --name terraform/terraform.tfstate \
+                        --auth-mode login
 
             - name: Set up Terraform
               uses: hashicorp/setup-terraform@v3
