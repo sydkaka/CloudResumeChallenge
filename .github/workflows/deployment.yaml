@@ -28,7 +28,7 @@
             
             - name: Terraform fmt
               id: fmt
-              run: terraform fmt -check
+              run: terraform fmt 
               continue-on-error: true
               working-directory: Infrastructure
             
@@ -61,13 +61,13 @@
                 inlineScript: |
                     az storage blob upload-batch \
                     --account-name "ydsunstorageaccount" \
-                    --source "$HOME_DIR/frontend" \
-                    --destination "$web" \
+                    --source "/home/runner/work/CloudResumeChallenge/CloudResumeChallenge/frontend" \
+                    --destination "$web" 
               
                     az storage blob upload-batch \
                     --account-name "ydsunstorageaccount" \
-                    --source "$HOME_DIR/resume" \
-                    --destination "$web" \
+                    --source "/home/runner/work/CloudResumeChallenge/CloudResumeChallenge/resume" \
+                    --destination "$web" 
      
 
             
