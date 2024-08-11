@@ -3,7 +3,7 @@
 # About
 This is a web app about me that is being hosted on Azure's storage account. It tracks the visitor count via Azure function as the API and Azure Cosmos DB as the database.
 
-![architecture] (assets/image/architecture.png)
+![architecture](assets/image/architecture.png)
 
 ## Demo
 
