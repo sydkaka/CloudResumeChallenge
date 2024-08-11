@@ -60,19 +60,19 @@
                 azcliversion: latest
                 inlineScript: |
                     az storage blob upload-batch \
-                    --destination \$web \
+                    --destination \$web$web/frontend \
                     --source "/home/runner/work/CloudResumeChallenge/CloudResumeChallenge/frontend" \
                     --account-name ydsunstorageaccount \
                     --overwrite true \
-                    --account-key '${{ secrets.ARM_ACCESS_KEY }}' \ 
+                    --account-key ${{ secrets.ARM_ACCESS_KEY }} \
                   
               
                     az storage blob upload-batch \
                     --account-name "ydsunstorageaccount" \
                     --source "/home/runner/work/CloudResumeChallenge/CloudResumeChallenge/resume" \
-                    --destination \$web \
+                    --destination \$web/resume \
                     --overwrite true \
-                    --account-key '${{ secrets.ARM_ACCESS_KEY }}' \
+                    --account-key ${{ secrets.ARM_ACCESS_KEY }} 
       
      
 
