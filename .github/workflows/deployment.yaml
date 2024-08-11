@@ -18,7 +18,7 @@
                 ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
                 ARM_ACCESS_KEY: ${{ secrets.ARM_ACCESS_KEY }}
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                Home_DIR: "/home/runner/work/CloudResumeChallenge/CloudResumeChallenge"
+
             steps:
             - name: Checkout repo
               uses: actions/checkout@v4
@@ -62,13 +62,13 @@
                     az storage blob upload-batch \
                     --account-name "ydsunstorageaccount" \
                     --source "/home/runner/work/CloudResumeChallenge/CloudResumeChallenge/frontend" \
-                    --destination "$web"
+                    --destination \$web
                     --account-key ${{ secrets.ARM_ACCESS_KEY }}
               
                     az storage blob upload-batch \
                     --account-name "ydsunstorageaccount" \
                     --source "/home/runner/work/CloudResumeChallenge/CloudResumeChallenge/resume" \
-                    --destination "$web"
+                    --destination \$web
                     --account-key ${{ secrets.ARM_ACCESS_KEY }}
      
 
