@@ -65,8 +65,15 @@
                     --account-name ydsunstorageaccount \
                     --overwrite true \
                     --account-key '${{ secrets.ARM_ACCESS_KEY }}' \ 
-                    --auth-mode login 
-            
+                  
+              
+                    az storage blob upload-batch \
+                    --account-name "ydsunstorageaccount" \
+                    --source "/home/runner/work/CloudResumeChallenge/CloudResumeChallenge/resume" \
+                    --destination \$web \
+                    --overwrite true \
+                    --account-key '${{ secrets.ARM_ACCESS_KEY }}' \
+      
      
 
             
