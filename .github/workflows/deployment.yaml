@@ -62,12 +62,14 @@
                     az storage blob upload-batch \
                     --account-name "ydsunstorageaccount" \
                     --source "/home/runner/work/CloudResumeChallenge/CloudResumeChallenge/frontend" \
-                    --destination "$web" 
+                    --destination "$web"
+                    --account-key ${{ secrets.ARM_ACCESS_KEY }}
               
                     az storage blob upload-batch \
                     --account-name "ydsunstorageaccount" \
                     --source "/home/runner/work/CloudResumeChallenge/CloudResumeChallenge/resume" \
-                    --destination "$web" 
+                    --destination "$web"
+                    --account-key ${{ secrets.ARM_ACCESS_KEY }}
      
 
             
