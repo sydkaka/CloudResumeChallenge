@@ -27,23 +27,23 @@
             
             - name: Terraform fmt
               id: fmt
-              run: cd Infrastructure && terraform fmt -check
+              run: terraform fmt -check
               continue-on-error: true
-              working-directory: ./Infrastructure"
+              working-directory: Infrastructure"
             
             - name: Terraform Init
               id: init
-              run: cd Infrastructure && terraform init
+              run: terraform init
               working-directory: ./Infrastructure"
             
             - name: Terraform Validate
               id: validate
-              run: cd Infrastructure && terraform validate
-              working-directory: ./Infrastructure"
+              run: terraform validate
+              working-directory: Infrastructure"
             
             - name: Terraform Apply
               id: apply
-              run: cd Infrastructure && terraform apply -auto-approve
+              run: terraform apply -auto-approve
               working-directory: ./Infrastructure"
 
 
