@@ -68,7 +68,7 @@
                   
               
                     az storage blob upload-batch \
-                    --account-name "ydsunstorageaccount" \
+                    --account-name ydsunstorageaccount \
                     --source "/home/runner/work/CloudResumeChallenge/CloudResumeChallenge/resume" \
                     --destination \$web/resume \
                     --overwrite true \
