@@ -18,11 +18,14 @@
                 ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
                 ARM_ACCESS_KEY: ${{ secrets.ARM_ACCESS_KEY }}
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+                
             steps:
             - name: Checkout repo
               uses: actions/checkout@v4
             
+            - name: Set HOME_DIR variable
+              run: echo "HOME_DIR=/home/runner/work/CloudResumeChallenge/CloudResumeChallenge"
+
             - name: Set up Terraform
               uses: hashicorp/setup-terraform@v3
             
@@ -61,7 +64,7 @@
                 inlineScript: |
                     az storage blob upload-batch \
                     --destination \$web$web/frontend \
-                    --source "/home/runner/work/CloudResumeChallenge/CloudResumeChallenge/frontend" \
+                    --source "$HOME_DIR/frontend" \
                     --account-name ydsunstorageaccount \
                     --overwrite true \
                     --account-key ${{ secrets.ARM_ACCESS_KEY }} \
@@ -69,7 +72,7 @@
               
                     az storage blob upload-batch \
                     --account-name ydsunstorageaccount \
-                    --source "/home/runner/work/CloudResumeChallenge/CloudResumeChallenge/resume" \
+                    --source "$HOME_DIR/resume" \
                     --destination \$web/resume \
                     --overwrite true \
                     --account-key ${{ secrets.ARM_ACCESS_KEY }} 
