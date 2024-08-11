@@ -61,15 +61,14 @@
                 inlineScript: |
                     az storage blob upload-batch \
                     --account-name "ydsunstorageaccount" \
-                    --name "$HOME_DIR/frontend" \
+                    --source "$HOME_DIR/frontend" \
                     --destination "$web" \
-                    --auth-mode login
-
+              
                     az storage blob upload-batch \
                     --account-name "ydsunstorageaccount" \
-                    --name "$HOME_DIR/resume" \
+                    --source "$HOME_DIR/resume" \
                     --destination "$web" \
-                    --auth-mode login
+     
 
             
            

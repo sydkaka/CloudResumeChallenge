@@ -40,52 +40,5 @@ resource "azurerm_storage_account" "storageaccount" {
   }
 }
 
-resource "azurerm_storage_blob" "indexhtml" {
-  name                   = "frontend/index.html"
-  storage_account_name   = azurerm_storage_account.storageaccount.name
-  storage_container_name = "$web"
-  type                   = "Block"
-  source                 = "../frontend/index.html"
-  content_type           = "text/html"
-}
-resource "azurerm_storage_blob" "css" {
-  name                   = "frontend/css/style.css"
-  storage_account_name   = azurerm_storage_account.storageaccount.name
-  storage_container_name = "$web"
-  type                   = "Block"
-  source                 = "../frontend/css/style.css"
-  content_type           = "text/css"
-}
-resource "azurerm_storage_blob" "img" {
-  name                   = "frontend/img/me.png"
-  storage_account_name   = azurerm_storage_account.storageaccount.name
-  storage_container_name = "$web"
-  type                   = "Block"
-  source                 = "../frontend/img/me.png"
-  content_type           = "image/png"
-}
-resource "azurerm_storage_blob" "jsmain" {
-  name                   = "frontend/js/main.js"
-  storage_account_name   = azurerm_storage_account.storageaccount.name
-  storage_container_name = "$web"
-  type                   = "Block"
-  source                 = "../frontend/js/main.js"
-  content_type           = "application/javascript"
-}
-resource "azurerm_storage_blob" "jsvisitorcount" {
-  name                   = "frontend/js/visitorcount.js"
-  storage_account_name   = azurerm_storage_account.storageaccount.name
-  storage_container_name = "$web"
-  type                   = "Block"
-  source                 = "../frontend/js/visitorcount.js"
-  content_type           = "application/javascript"
-}
-resource "azurerm_storage_blob" "resumepdf" {
-  name                   = "resume/YongdingSunCloud.pdf"
-  storage_account_name   = azurerm_storage_account.storageaccount.name
-  storage_container_name = "$web"
-  type                   = "Block"
-  source                 = "../resume/YongdingSunCloud.pdf"
-  content_type           = "application/pdf"
-}
+
 
