@@ -34,7 +34,7 @@
             - name: Terraform Init
               id: init
               run: terraform init
-              working-directory: ./Infrastructure"
+              working-directory: Infrastructure"
             
             - name: Terraform Validate
               id: validate
@@ -44,7 +44,7 @@
             - name: Terraform Apply
               id: apply
               run: terraform apply -auto-approve
-              working-directory: ./Infrastructure"
+              working-directory: Infrastructure"
 
 
                 
