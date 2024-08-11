@@ -18,8 +18,6 @@
                 ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
                 ARM_ACCESS_KEY: ${{ secrets.ARM_ACCESS_KEY }}
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                TF_ACTION_WORKING_DIR: "./Infrastructure"
-
             steps:
             - name: Checkout repo
               uses: actions/checkout@v4
@@ -29,20 +27,24 @@
             
             - name: Terraform fmt
               id: fmt
-              run: terraform fmt -check
+              run: cd Infrastructure && terraform fmt -check
               continue-on-error: true
+              working-directory: ./Infrastructure"
             
             - name: Terraform Init
               id: init
-              run: terraform init
+              run: cd Infrastructure && terraform init
+              working-directory: ./Infrastructure"
             
             - name: Terraform Validate
               id: validate
-              run: terraform validate 
+              run: cd Infrastructure && terraform validate
+              working-directory: ./Infrastructure"
             
             - name: Terraform Apply
               id: apply
-              run: terraform apply -auto-approve
+              run: cd Infrastructure && terraform apply -auto-approve
+              working-directory: ./Infrastructure"
 
 
                 
