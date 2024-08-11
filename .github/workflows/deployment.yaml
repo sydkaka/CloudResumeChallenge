@@ -26,7 +26,7 @@
               run: pwd
             
             - name: Show directory
-              run: ls
+              run: cd Infrastructure
             
             - name: Set up Terraform
               uses: hashicorp/setup-terraform@v3
