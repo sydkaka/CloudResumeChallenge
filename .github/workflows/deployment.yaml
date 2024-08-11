@@ -25,6 +25,9 @@
             - name: Show path
               run: pwd
             
+            - name: Show directory
+              run: ls
+            
             - name: Set up Terraform
               uses: hashicorp/setup-terraform@v3
             
