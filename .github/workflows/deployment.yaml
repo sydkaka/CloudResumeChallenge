@@ -62,15 +62,15 @@
                     az storage blob upload-batch \
                     --account-name "ydsunstorageaccount" \
                     --source "/home/runner/work/CloudResumeChallenge/CloudResumeChallenge/frontend" \
-                    --destination \$web
-                    --overwrite true
-                    --auth-mode login
+                    --destination \$web \
+                    --overwrite true \
+                    --auth-mode login \
               
                     az storage blob upload-batch \
                     --account-name "ydsunstorageaccount" \
                     --source "/home/runner/work/CloudResumeChallenge/CloudResumeChallenge/resume" \
-                    --destination \$web
-                    --overwrite true
+                    --destination \$web \
+                    --overwrite true \
                     --auth-mode login
      
 
