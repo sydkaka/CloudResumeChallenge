@@ -23,9 +23,6 @@
             - name: Checkout repo
               uses: actions/checkout@v4
             
-            - name: Set HOME_DIR variable
-              run: echo "HOME_DIR=/home/runner/work/CloudResumeChallenge/CloudResumeChallenge"
-
             - name: Set up Terraform
               uses: hashicorp/setup-terraform@v3
             
@@ -64,7 +61,7 @@
                 inlineScript: |
                     az storage blob upload-batch \
                     --destination \$web$web/frontend \
-                    --source "$HOME_DIR/frontend" \
+                    --source "/home/runner/work/CloudResumeChallenge/CloudResumeChallenge/frontend" \
                     --account-name ydsunstorageaccount \
                     --overwrite true \
                     --account-key ${{ secrets.ARM_ACCESS_KEY }} \
@@ -72,7 +69,7 @@
               
                     az storage blob upload-batch \
                     --account-name ydsunstorageaccount \
-                    --source "$HOME_DIR/resume" \
+                    --source "/home/runner/work/CloudResumeChallenge/CloudResumeChallenge/resume" \
                     --destination \$web/resume \
                     --overwrite true \
                     --account-key ${{ secrets.ARM_ACCESS_KEY }} 
